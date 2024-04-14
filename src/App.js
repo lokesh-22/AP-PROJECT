@@ -6,6 +6,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import './App.css';
 import Home from './screens/Home';
 import Login from './screens/Login'
+import Cart from './screens/Cart';
 import { CartProvider } from './components/ContextReducer';
 import {
   BrowserRouter as Router,
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/loginuser" element={<Login/>}/>
         <Route exact path="/createuser" element={<SignUp/>}/>
+        <Route exact path="/cart" element={<Cart/>}/>
         
       </Routes>
      </div>
