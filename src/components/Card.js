@@ -13,7 +13,7 @@ export default function Card(props) {
    const [size, setSize] = useState("")
    const priceRef = useRef();
  
-
+let data = useCart()
   
    const handleQty = (e) => {
     setQty(e.target.value);
@@ -22,19 +22,36 @@ export default function Card(props) {
     setSize(e.target.value);
   }
   let foodItem = props.foodItem
-  
- const AddToCart = () => {
-    dispatch({ 
-      type: "ADD", 
-      id: foodItem._id, 
-      name: foodItem.name, 
-      qty: qty, 
-      size: size, 
-      price: finalPrice, 
-      img: foodItem.img 
-    });
-   
+  const handleAddToCart = async () => {
+  let food = []
+  for (const item of data) {
+    if (item.id === foodItem._id) {
+      food = item;
+
+      break;
+    }
   }
+  console.log(food)
+  console.log(new Date())
+  if (food.length !== 0) {
+    if (food.size === size) {
+      await dispatch({ type: "UPDATE", id: foodItem._id, price: finalPrice, qty: qty })
+      return
+    }
+    else if (food.size !== size) {
+      await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size,img: props.ImgSrc })
+      console.log("Size different so simply ADD one more to the list")
+      return
+    }
+    return
+  }
+
+  await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
+
+
+ 
+
+}
   useEffect(() => {
     setSize(priceRef.current.value)
   }, [])
@@ -65,7 +82,7 @@ export default function Card(props) {
       <div className="d-inline fs-5">Rs{finalPrice}/-</div>
     </div>
    
-    <button onClick={AddToCart} className="btn btn-success">Add to cart</button>
+    <button onClick={handleAddToCart} className="btn btn-success">Add to cart</button>
     
   </div>
 </div>

@@ -1,15 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useCart } from './ContextReducer';
+import Modal from '../Modal';
+import Cart from '../screens/Cart';
 export default function Navbar() {
-
+  const [cartView, setCartView] = useState(false)
+  let data = useCart()
   const navigate = useNavigate()
  
   const handleHome = ()=>{
     localStorage.removeItem("authToken")
     navigate('/')
   }
+  const loadCart = () => {
+    setCartView(true)
+}
+
   return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -38,12 +46,13 @@ export default function Navbar() {
          <Link className="nav-link btn bg-white mx-2 text-success" to="/createuser">SignUp</Link>
           </div>
           :<div>
-           <div className="btn bg-white text-success mx-2 " >
-                                    <Badge color="secondary" badgeContent={2} >
+           <div className="btn bg-white text-success mx-2 "  onClick={loadCart}>
+                                    <Badge color="secondary" badgeContent={data.length} >
                                         <ShoppingCartIcon />
                                     </Badge>
                                     Cart
                                 </div>
+          {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
          <div className='btn bg-white text-danger mx-2' onClick={handleHome}>Logout</div>
        </div>
       
