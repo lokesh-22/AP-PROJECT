@@ -85,9 +85,9 @@ useEffect(()=>{
               ).map((filteredItems)=>{
                 return (
                   <div key={filteredItems._id} className='col-12 col-md-6 col-lg-3'>
-                    <Card foodName={filteredItems.name}
+                    <Card foodItem={filteredItems}
                     options={filteredItems.options[0]}
-                    img={filteredItems.img}>
+                    >
 
                     </Card>
                     </div>
