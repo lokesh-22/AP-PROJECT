@@ -7,6 +7,7 @@ import './App.css';
 import Home from './screens/Home';
 import Login from './screens/Login'
 import Cart from './screens/Cart';
+import MyOrders from './screens/MyOrders.js';
 import { CartProvider } from './components/ContextReducer';
 import {
   BrowserRouter as Router,
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/loginuser" element={<Login/>}/>
         <Route exact path="/createuser" element={<SignUp/>}/>
         <Route exact path="/cart" element={<Cart/>}/>
+        <Route exact path="/myorders" element={<MyOrders/>}/>
         
       </Routes>
      </div>

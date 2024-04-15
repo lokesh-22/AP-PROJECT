@@ -1,4 +1,5 @@
 const User = require('../models/Users')
+const Order = require('../models/Orders')
 const {body, validationResult} = require('express-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -126,7 +127,7 @@ const orderData = async (req,res)=>{
             })
         } catch (error) {
             console.log(error.message)
-            res.send("Server Error", error.message)
+            // res.send("Server Error", error.message)
 
         }
     }
