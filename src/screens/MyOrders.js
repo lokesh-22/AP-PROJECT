@@ -30,19 +30,20 @@ export default function MyOrder() {
 
     return (
         <div>
-            <div>
-                <Navbar />
-            </div>
+     <div>
+     <Navbar />
+    </div>
 
-            <div className='container'>
-                <div className='row'>
+     <div className='container'>
+    <div className='row'>
 
-                    {Object.keys(orderData).length !== 0 ? Array(orderData).map(data => {
-                        return (
+      {Object.keys(orderData).length !== 0 ? Array(orderData).map(data => {
+                           return (
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
                                     return (
                                         item.map((arrayData) => {
+                                            console.log(arrayData.img);
                                             return (
                                                 <div  >
                                                     {arrayData.Order_date ? <div className='m-auto mt-5'>
