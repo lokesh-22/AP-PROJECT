@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatchCart, useCart } from './ContextReducer'
+import QuantitySelector from './QuantitySelector'
 
 
 export default function Card(props) {
@@ -59,13 +60,13 @@ let data = useCart()
 
   return (
     <div><div>
-    <div className="card mt-3" style={{"width": "18rem", "maxHeight":"360px"}}>
+    <div className="card mt-3" style={{"width": "18rem", "maxHeight":"400px"}}>
   <img src={props.foodItem.img}  className='card-img-top' alt="...." style={{height:"220px",objectFit:"fill"}}/>
   <div className="card-body">
     <h5 className="card-title">{props.foodItem.name}</h5>
     
     <div className="container w-100">
-    <select className="m-2 height-100 bg-success rounded"  ref={priceRef}  onChange={handleQty}>
+    {/* <select className="m-2 height-100 bg-success rounded"  ref={priceRef}  onChange={handleQty}>
         {
           Array.from(Array(6), (e,i)=>{
             return(
@@ -73,7 +74,8 @@ let data = useCart()
             )
           })
         }
-      </select>
+      </select> */}
+      <QuantitySelector/>
       <select className="m-2 height-100 bg-success rounded" ref={priceRef}  onChange={handleOptions}>
       {priceOptions.map((data)=>{
         return <option key={data} value={data}>{data}</option>
