@@ -66,7 +66,7 @@ let data = useCart()
     <h5 className="card-title">{props.foodItem.name}</h5>
     
     <div className="container w-100">
-    {/* <select className="m-2 height-100 bg-success rounded"  ref={priceRef}  onChange={handleQty}>
+    <select className="m-2 height-100 bg-success rounded"  ref={priceRef}  onChange={handleQty}>
         {
           Array.from(Array(6), (e,i)=>{
             return(
@@ -74,8 +74,8 @@ let data = useCart()
             )
           })
         }
-      </select> */}
-      <QuantitySelector/>
+      </select>
+      {/* <QuantitySelector/> */}
       <select className="m-2 height-100 bg-success rounded" ref={priceRef}  onChange={handleOptions}>
       {priceOptions.map((data)=>{
         return <option key={data} value={data}>{data}</option>

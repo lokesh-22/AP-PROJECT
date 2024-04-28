@@ -49,13 +49,13 @@ useEffect(()=>{
     </div>
       </div>
       <div className="carousel-item active">
-        <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100" alt="..."/>
+        <img src="" className="d-block w-100" alt="..."/>
       </div>
       <div className="carousel-item">
-        <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100" alt="..."/>
+        <img src="" className="d-block w-100" alt="..."/>
       </div>
       <div className="carousel-item">
-        <img src="https://source.unsplash.com/random/900x700/?biryani" className="d-block w-100" alt="..."/>
+        <img src="" className="d-block w-100" alt="..."/>
       </div>
     </div>
     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
